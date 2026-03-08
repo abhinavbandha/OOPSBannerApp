@@ -1,10 +1,14 @@
-
 public class OOPSBannerApp {
 
     public static void main(String[] args) {
 
-        // Printing OOPS to console
-        System.out.println("OOPS");
+        System.out.println(" *****   *****   *****   ***** ");
+        System.out.println("*     * *     * *     * *     *");
+        System.out.println("*     * *     * *     * *      ");
+        System.out.println("*     * *     * *****   *****  ");
+        System.out.println("*     * *     * *             *");
+        System.out.println("*     * *     * *       *     *");
+        System.out.println(" *****   *****  *        ***** ");
 
     }
 }
