@@ -1,19 +1,28 @@
 public class OOPSBannerApp {
 
-    public static void main(String[] args) {
+    // Static inner class to store character pattern
+    static class CharacterPatternMap {
 
-        String[] o = buildO();
-        String[] p = buildP();
-        String[] s = buildS();
+        private char character;
+        private String[] pattern;
 
-        for (int i = 0; i < o.length; i++) {
-            System.out.println(String.join("   ", o[i], o[i], p[i], s[i]));
+        public CharacterPatternMap(char character, String[] pattern) {
+            this.character = character;
+            this.pattern = pattern;
+        }
+
+        public char getCharacter() {
+            return character;
+        }
+
+        public String[] getPattern() {
+            return pattern;
         }
     }
 
-    // Static function to build letter O
-    public static String[] buildO() {
-        return new String[]{
+    public static void main(String[] args) {
+
+        CharacterPatternMap o = new CharacterPatternMap('O', new String[]{
                 " ***** ",
                 "*     *",
                 "*     *",
@@ -21,12 +30,9 @@ public class OOPSBannerApp {
                 "*     *",
                 "*     *",
                 " ***** "
-        };
-    }
+        });
 
-    // Static function to build letter P
-    public static String[] buildP() {
-        return new String[]{
+        CharacterPatternMap p = new CharacterPatternMap('P', new String[]{
                 " ***** ",
                 "*     *",
                 "*     *",
@@ -34,12 +40,9 @@ public class OOPSBannerApp {
                 "*      ",
                 "*      ",
                 "*      "
-        };
-    }
+        });
 
-    // Static function to build letter S
-    public static String[] buildS() {
-        return new String[]{
+        CharacterPatternMap s = new CharacterPatternMap('S', new String[]{
                 " ***** ",
                 "*     *",
                 "*      ",
@@ -47,7 +50,25 @@ public class OOPSBannerApp {
                 "      *",
                 "*     *",
                 " ***** "
-        };
+        });
+
+        String word = "OOPS";
+
+        for (int i = 0; i < 7; i++) {
+            StringBuilder line = new StringBuilder();
+
+            for (char c : word.toCharArray()) {
+                if (c == 'O') {
+                    line.append(o.getPattern()[i]).append("   ");
+                } else if (c == 'P') {
+                    line.append(p.getPattern()[i]).append("   ");
+                } else if (c == 'S') {
+                    line.append(s.getPattern()[i]).append("   ");
+                }
+            }
+
+            System.out.println(line.toString());
+        }
     }
 }
 
